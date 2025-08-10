@@ -25,3 +25,6 @@ Cargo.lock
 tmp_*.rs
 tmp_*.log
 examples/
+scripts/
+.env
+config*toml
