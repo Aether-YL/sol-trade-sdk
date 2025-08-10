@@ -25,3 +25,19 @@ Cargo.lock
 tmp_*.rs
 tmp_*.log
 examples/
+.history/
+scripts/
+
+# 敏感配置文件 - 包含私钥和API密钥
+config*toml
+.env
+*.key
+*.pem
+
+# 日志文件
+logs/
+*.log
+
+# 临时文件
+temp/
+tmp/

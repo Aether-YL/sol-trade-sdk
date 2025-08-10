@@ -71,10 +71,28 @@ pub enum SwqosRegion {
     Default,
 }
 
+impl std::str::FromStr for SwqosRegion {
+    type Err = String;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s.to_lowercase().as_str() {
+            "newyork" | "ny" => Ok(SwqosRegion::NewYork),
+            "frankfurt" | "fra" => Ok(SwqosRegion::Frankfurt),
+            "amsterdam" | "ams" => Ok(SwqosRegion::Amsterdam),
+            "slc" => Ok(SwqosRegion::SLC),
+            "tokyo" | "tyo" => Ok(SwqosRegion::Tokyo),
+            "london" | "lon" => Ok(SwqosRegion::London),
+            "losangeles" | "lax" => Ok(SwqosRegion::LosAngeles),
+            "default" => Ok(SwqosRegion::Default),
+            _ => Err(format!("未知的区域: {}", s)),
+        }
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum SwqosConfig {
     Default(String),
-    Jito(String, SwqosRegion),
+    Jito(SwqosRegion),
     NextBlock(String, SwqosRegion),
     Bloxroute(String, SwqosRegion),
     Temporal(String, SwqosRegion),
@@ -95,12 +113,12 @@ impl SwqosConfig {
 
     pub fn get_swqos_client(rpc_url: String, commitment: CommitmentConfig, swqos_config: SwqosConfig) -> Arc<SwqosClient> {
         match swqos_config {
-            SwqosConfig::Jito(auth_token, region) => {
+            SwqosConfig::Jito(region) => {
                 let endpoint = SwqosConfig::get_endpoint(SwqosType::Jito, region);
                 let jito_client = JitoClient::new(
                     rpc_url.clone(),
                     endpoint,
-                    auth_token
+                    "".to_string()
                 );
                 Arc::new(jito_client)
             }

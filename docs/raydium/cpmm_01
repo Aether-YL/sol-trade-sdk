@@ -1,0 +1,49 @@
+RaydiumCpmmSwapEvent { 
+    metadata: EventMetadata { 
+        id: "8c8f166f01010d19", 
+        signature: "DTxBMceg1gnh1BzCdsZt3ongiiaMVCt754oqZvuMcS5KyR5pmyPVBvEp7M8Hi8CS6hrzcRpNdkU6Cht7gDYtCUw", 
+        slot: 357013609, 
+        block_time: 1753992656, 
+        block_time_ms: 1753992656855, 
+        program_received_time_ms: 1753992663247, 
+        protocol: RaydiumCpmm, 
+        event_type: RaydiumCpmmSwapBaseInput, 
+        program_id: CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C, 
+        transfer_datas: [
+            TransferData { 
+                token_program: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA, 
+                source: Hc4PPY93UjUq8y19jqf4GBgykwFxRoZrQ2CSoUWbqwRc, 
+                destination: DFU1VD6X4z9EWF5Ak4bpGG9i742ttyCvD4S6hvPeRL7v, 
+                authority: Some(3QY8YKGfZX6RKrwSdRvsayzkfLGBV1y2uYRgyJiGYUKe), 
+                amount: 81614685352, 
+                decimals: Some(6), 
+                mint: Some(BXhVjDNucDJP2B8hZZbK4YtaVLjLdQ1PtW1ATcKrbonk) 
+            }, 
+            TransferData { 
+                token_program: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA, 
+                source: 9BRh4zKRUoHxnwCBysHDaGTZWrNceEh1QjMUCf1eMaY4, 
+                destination: 2XngFZY5a84jytvWyrVFUJ38L8bEPHMjrsAJn9Eemhxu, 
+                authority: Some(GpMZbSM2GgvTKHJirzeGfMFoaZ8UR2X7F4v8vHTvxFbL), 
+                amount: 730626356, 
+                decimals: Some(9), 
+                mint: Some(So11111111111111111111111111111111111111112) 
+            }
+        ], 
+        index: "3" 
+    }, 
+    amount_in: 81614685352, 
+    minimum_amount_out: 472350868, 
+    max_amount_in: 0, 
+    amount_out: 0, 
+    payer: 3QY8YKGfZX6RKrwSdRvsayzkfLGBV1y2uYRgyJiGYUKe, 
+    authority: GpMZbSM2GgvTKHJirzeGfMFoaZ8UR2X7F4v8vHTvxFbL, 
+    amm_config: D4FPEruKEHrG5TenZ2mpDGEfu1iUvTiqBxvpU8HLBvC2, 
+    pool_state: 7kbH2S8FXit8MvAL36wTEM4UR36K87aeqpMB51aBgZBT, 
+    input_token_account: Hc4PPY93UjUq8y19jqf4GBgykwFxRoZrQ2CSoUWbqwRc, 
+    output_token_account: 2XngFZY5a84jytvWyrVFUJ38L8bEPHMjrsAJn9Eemhxu, 
+    input_vault: DFU1VD6X4z9EWF5Ak4bpGG9i742ttyCvD4S6hvPeRL7v, 
+    output_vault: 9BRh4zKRUoHxnwCBysHDaGTZWrNceEh1QjMUCf1eMaY4, 
+    input_token_mint: BXhVjDNucDJP2B8hZZbK4YtaVLjLdQ1PtW1ATcKrbonk, 
+    output_token_mint: So11111111111111111111111111111111111111112, 
+    observation_state: 8npym8gvoe4VGwHHJS4nPK6nkUULCioXxD3cMxSnxV5q 
+}

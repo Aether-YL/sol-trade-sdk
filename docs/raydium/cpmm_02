@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "id": "8d7b74d1a38251a1",
+    "signature": "2Xh8HT7Z16hHsTcpLmYFHcbXaZayum5UMUQ3oNYVCbRo3NmGiP4okhSdW1JjRxzgaSauRMVwtqnKAqjYEpRZDt4M",
+    "slot": 358648986,
+    "block_time": 1754642711,
+    "block_time_ms": 1754642711022,
+    "program_received_time_ms": 1754642712891,
+    "protocol": "RaydiumCpmm",
+    "event_type": "RaydiumCpmmSwapBaseInput",
+    "program_id": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+    "transfer_datas": [
+      {
+        "token_program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "source": "6Qrr4rgQ3abjf7bvwNFvEs7ZDEecBXX3yfPvTVXjAhzF",
+        "destination": "D9F8oimrzksS6q5X6RzKwjw5rBMyNvbMCRjLLW3zc2Sx",
+        "authority": "7NCdS61sEbkNcQZumSyh8uDMbKCTnyjRVoq7nAxLisPk",
+        "amount": 74932323135,
+        "decimals": 6,
+        "mint": "G95DeH1mNbG48MWsfRx1WXngtUhHvjWE97P4piXZbonk"
+      },
+      {
+        "token_program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "source": "DHffySgHtUKQ9mB1jpxLteQRLgkMxjjRHeqcZRFJ8d3j",
+        "destination": "14bZa5u3dv752cynu3NjtDZDQTFxcxHmELgMFu4tUqdt",
+        "authority": "GpMZbSM2GgvTKHJirzeGfMFoaZ8UR2X7F4v8vHTvxFbL",
+        "amount": 80629719,
+        "decimals": 9,
+        "mint": "So11111111111111111111111111111111111111112"
+      }
+    ],
+    "index": "3.0"
+  },
+  "amount_in": 74932323135,
+  "minimum_amount_out": 0,
+  "max_amount_in": 0,
+  "amount_out": 0,
+  "payer": "7NCdS61sEbkNcQZumSyh8uDMbKCTnyjRVoq7nAxLisPk",
+  "authority": "GpMZbSM2GgvTKHJirzeGfMFoaZ8UR2X7F4v8vHTvxFbL",
+  "amm_config": "D4FPEruKEHrG5TenZ2mpDGEfu1iUvTiqBxvpU8HLBvC2",
+  "pool_state": "4QUA7i6aNJWti6qfF6oQ6GiQ7QWttZR6jsCttNod2368",
+  "input_token_account": "6Qrr4rgQ3abjf7bvwNFvEs7ZDEecBXX3yfPvTVXjAhzF",
+  "output_token_account": "14bZa5u3dv752cynu3NjtDZDQTFxcxHmELgMFu4tUqdt",
+  "input_vault": "D9F8oimrzksS6q5X6RzKwjw5rBMyNvbMCRjLLW3zc2Sx",
+  "output_vault": "DHffySgHtUKQ9mB1jpxLteQRLgkMxjjRHeqcZRFJ8d3j",
+  "input_token_mint": "G95DeH1mNbG48MWsfRx1WXngtUhHvjWE97P4piXZbonk",
+  "output_token_mint": "So11111111111111111111111111111111111111112",
+  "observation_state": "35avuSjnY4heApLg8bQ6Jdp7Ky8oghJ1rP2GTxUDfnPo"
+} 

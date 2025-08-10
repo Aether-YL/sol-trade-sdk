@@ -1,0 +1,67 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug Main (CodeLLDB)",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--package=sol-trade-sdk"
+                ],
+                "filter": {
+                    "name": "sol-trade-sdk",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "SH": "C:\\msys64\\usr\\bin\\sh.exe",
+                "PATH": "${env:PATH};C:\\msys64\\usr\\bin",
+                "RUST_LOG": "debug",
+                "RUST_BACKTRACE": "1",
+                "RUSTFLAGS": "-C debuginfo=2"
+            },
+            "console": "integratedTerminal",
+            "stopOnEntry": false,
+            "MIMode": "lldb",
+            "miDebuggerPath": "lldb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "设置 LLDB 选项",
+                    "text": "settings set target.inline-breakpoint-strategy always",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug Tests",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--package=sol-trade-sdk",
+                    "--lib"
+                ]
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "RUST_LOG": "debug",
+                "RUST_BACKTRACE": "1"
+            },
+            "console": "integratedTerminal"
+        }
+    ]
+}

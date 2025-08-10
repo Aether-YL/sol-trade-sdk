@@ -4,6 +4,61 @@ use crate::SolanaTrade;
 use solana_sdk::pubkey::Pubkey;
 use solana_sdk::signature::Keypair;
 use solana_sdk::signer::Signer;
+use std::fs::OpenOptions;
+use std::io::Write;
+use chrono::{DateTime, Utc};
+use std::sync::Mutex;
+use lazy_static::lazy_static;
+
+lazy_static! {
+    static ref LOG_FILE: Mutex<Option<std::fs::File>> = Mutex::new(None);
+}
+
+/// 初始化日志文件
+pub fn init_log_file(filename: &str) -> Result<(), std::io::Error> {
+    let file = OpenOptions::new()
+        .create(true)
+        .append(true)
+        .open(filename)?;
+    
+    let mut log_file = LOG_FILE.lock().unwrap();
+    *log_file = Some(file);
+    Ok(())
+}
+
+/// 写入日志到文件
+pub fn write_log(message: &str) {
+    let timestamp = Utc::now().format("%Y-%m-%d %H:%M:%S UTC").to_string();
+    let log_message = format!("[{}] {}\n", timestamp, message);
+    
+    // 同时输出到控制台和文件
+    println!("{}", message);
+    
+    if let Ok(mut log_file) = LOG_FILE.lock() {
+        if let Some(ref mut file) = *log_file {
+            let _ = file.write_all(log_message.as_bytes());
+            let _ = file.flush();
+        }
+    }
+}
+
+/// 写入日志到文件（不输出到控制台）
+pub fn write_log_only(message: &str) {
+    let timestamp = Utc::now().format("%Y-%m-%d %H:%M:%S UTC").to_string();
+    let log_message = format!("[{}] {}\n", timestamp, message);
+    
+    if let Ok(mut log_file) = LOG_FILE.lock() {
+        if let Some(ref mut file) = *log_file {
+            let _ = file.write_all(log_message.as_bytes());
+            let _ = file.flush();
+        }
+    }
+}
+
+/// 获取当前时间戳字符串
+pub fn get_current_timestamp() -> String {
+    Utc::now().format("%Y-%m-%d %H:%M:%S UTC").to_string()
+}
 
 impl SolanaTrade {
     #[inline]

@@ -1,5 +1,7 @@
-use solana_sdk::{pubkey::Pubkey, signature::Keypair, signer::Signer, transaction::Transaction};
-use solana_system_interface::instruction::transfer;
+use solana_sdk::{
+    pubkey::Pubkey, signature::Keypair, signer::Signer, system_instruction,
+    transaction::Transaction,
+};
 use spl_associated_token_account::get_associated_token_address;
 use spl_token::instruction::close_account;
 
@@ -12,10 +14,14 @@ pub async fn get_token_balance(
     payer: &Pubkey,
     mint: &Pubkey,
 ) -> Result<u64, anyhow::Error> {
+    println!("payer: {:?}", payer);
+    println!("mint: {:?}", mint);
     let ata = get_associated_token_address(payer, mint);
     let balance = rpc.get_token_account_balance(&ata).await?;
-    let balance_u64 =
-        balance.amount.parse::<u64>().map_err(|_| anyhow!("Failed to parse token balance"))?;
+    let balance_u64 = balance
+        .amount
+        .parse::<u64>()
+        .map_err(|_| anyhow!("Failed to parse token balance"))?;
     Ok(balance_u64)
 }
 
@@ -59,7 +65,8 @@ pub async fn transfer_sol(
         return Err(anyhow!("Insufficient balance"));
     }
 
-    let transfer_instruction = transfer(&payer.pubkey(), receive_wallet, amount);
+    let transfer_instruction =
+        system_instruction::transfer(&payer.pubkey(), receive_wallet, amount);
 
     let recent_blockhash = rpc.get_latest_blockhash().await?;
 
@@ -103,8 +110,13 @@ pub async fn close_token_account(
     }
 
     // 构建关闭账户指令
-    let close_account_ix =
-        close_account(&spl_token::ID, &ata, &payer.pubkey(), &payer.pubkey(), &[&payer.pubkey()])?;
+    let close_account_ix = close_account(
+        &spl_token::ID,
+        &ata,
+        &payer.pubkey(),
+        &payer.pubkey(),
+        &[&payer.pubkey()],
+    )?;
 
     // 构建交易
     let recent_blockhash = rpc.get_latest_blockhash().await?;
