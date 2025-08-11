@@ -5,6 +5,8 @@ pub mod protos;
 pub mod swqos;
 pub mod trading;
 pub mod utils;
+pub mod strategy;
+pub mod service;
 pub use solana_streamer_sdk;
 
 use crate::swqos::SwqosConfig;
